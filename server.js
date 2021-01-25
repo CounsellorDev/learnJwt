@@ -26,8 +26,12 @@ app.listen(PORT, () =>{
 
 // Database connections
 mongoose.Promise = global.Promise;
-mongoose.connect(connection_string, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log(`Database connected successfully`))
+mongoose.connect(connection_string, { 
+  useNewUrlParser: true, 
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true
+ }) .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(`Database Connection failed ${err.message}`));
 
 
